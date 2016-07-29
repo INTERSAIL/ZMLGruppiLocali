@@ -1,0 +1,76 @@
+<div style="height: 100%" class="gruppo-locale-info">
+    <form name="frmGruppoLocale" class="form-horizontal gruppo-locale-info" style="height: 100%" novalidate>
+        <h2>Dettagli Gruppo Locale</h2>
+        <div class="wrapper-form-element">
+            <div class="form-group element-form"><!-- nome-->
+                <label class="control-label col-md-1" for="txtName">Nome:</label>
+                <div class="col-md-11">
+                    <input id="txtName" type="text" name="namegl" class="form-control" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" ng-model="tmpGruppoLocale.name" ng-disabled="!editable" required>
+                </div>
+            </div>
+            <div> <!--Descrizione area-->
+                <label class="col-md-1 control-label" style="padding-left: 0px;" for="txtDescription">Descrizione:</label>
+            </div>
+            <div class="description-area">
+                <div class="form-group element-form" style="height: 100%">
+                    <div class="col-md-12" style="height: 100%">
+                        <textarea id="txtDescription" class="form-control"  ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" ng-disabled="!editable" ng-model="tmpGruppoLocale.description">{{tmpGruppoLocale.description}}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%"><!--Tempo tragitto checkbox-->
+               <label style="width: 100%">
+                   <input class="col-md-1" type="checkbox" id="chkTempoTragitto" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10;width: 30px;" ng-model="tmpGruppoLocale.considera_tempi_viaggio"   ng-disabled="!editable">Tempo tragitto</label>
+            </div>
+            <!--<div style="width: 100%">
+                <label style="width: 100%"> <input class="col-md-1" type="checkbox" id="chkOrdineDitte" style="width: 30px;" ng-model="tmpGruppoLocale.considera_ordine_ditte" ng-true-value="'true'" ng-false-value="'false'" ng-disabled="!editable">Ordine ditte</label>
+            </div>-->
+            <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"><!--visite orario cod textebox ******-->
+                <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="txtOrarioVisite">Orario Visite:</label>
+                <div class="col-md-10" style="padding-left: 0;">
+                    <input type="text" id="txtOrarioVisite" maxlength="6" minlength="6" allow-pattern="[\*\-ICFMP]" ng-model="tmpGruppoLocale.visite_orario_cod" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10;text-transform: uppercase">
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"><!--Inizio turno 08:00-->
+                <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeInizioTurno">Inizio Turno:</label>
+                <div class="col-md-10" style="padding-left: 0;">
+                    <input type="time" id="timeInizioTurno" ng-model="tmpGruppoLocale.InizioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" format="">
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"> <!--Cambio turno 00:00-->
+                <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeCambioTurno" >Cambio Turno:</label>
+                <div class="col-md-10" style="padding-left: 0;">
+                    <input type="time" id="timeCambioTurno" ng-model="tmpGruppoLocale.CambioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10">
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"><!--Fine turno 00:00-->
+                <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeFineTurno">Fine Turno:</label>
+                <div class="col-md-10" style="padding-left: 0;">
+                    <input type="time" id="timeFineTurno" ng-model="tmpGruppoLocale.FineTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10">
+                </div>
+            </div>
+            <div class="col-md-12 panel-aziende" style="padding-left: 2px; padding-right: 2px;"><!--lista azienda-->
+             <!-- <panel-aziende-list tmp-gruppo-locale="tmpGruppoLocale" gr-aziende-list="tmpGruppoLocale.listaDitte"></panel-aziende-list>-->
+                <panel-aziende tmp-gruppo-locale="tmpGruppoLocale" editable="editable"></panel-aziende>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="popupListaAziendeModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Lista Aziende</h4>
+            </div>
+            <div class="modal-body">
+                <popup-panel-aziende-list tmp-lista-aziende="listaAziende"></popup-panel-aziende-list>
+            </div>
+            <div class="modal-footer">
+                <button id="btnAnnulla" type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModal()">Annulla</button>
+                <button id="btnAggiungi" type="button" class="btn btn-primary" ng-click="addListaAziendeToGL()">Aggiungi</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,27 @@
+.actions-bar {
+    background-color:  black;
+    height: 36px;
+    border-radius: 5px;
+
+}
+
+.generic-button {
+    background-size: 24px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 2px;
+    float: right;
+}
+
+.action-bar-button {
+    background-size: 24px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    width: 70px;
+    height: 28px;
+    top: 4px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 5px;
+}

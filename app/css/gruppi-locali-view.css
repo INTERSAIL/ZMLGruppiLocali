@@ -1,0 +1,97 @@
+#gruppi-locali-view-content{
+    height: 100%;
+    width: 100%;
+    margin-top: -40px;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.gruppi-locali-list-item{
+    margin:2px;
+    padding: 0;
+    width: initial;
+}
+.gruppi-locali-list-item:hover{
+    cursor:pointer;
+}
+
+.gruppo-locale-info{
+    height: 100%;
+    width: 100%;
+    margin-top: -1px;
+    padding-top: 1px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container-lista-aziende{
+    height: 100%;
+    width: 100%;
+    margin-top: -100px;
+    padding-top: 100px;
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+.wrapper-form-element{
+    height: 100%;
+    width: 100%;
+    margin-top: -33px;
+    padding-top: 33px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.panel-body-p{
+    height: 100%;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.container-panel-body-p{
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    margin-top: -64px;
+    padding-top: 64px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+
+.panel-body-disabled{
+    background-color: silver;
+    padding: 5px;
+    /*max-height: 650px;*/
+    height: 100%;
+    overflow-y: scroll;
+    pointer-events: none;
+}
+
+.selected{
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: #2e6da4;
+    background-color: #c4e3f3;
+
+}
+.unselected{
+    background-color: transparent;
+}
+
+.element-form{
+    margin: 10px;"
+}
+
+.description-area{
+    /*height: 100%;*/
+    z-index: 9;
+    margin-top: -193px; /*-213px;*/
+    padding-top: 193px;/*213px;*/
+    box-sizing: border-box;
+    position: relative;
+}

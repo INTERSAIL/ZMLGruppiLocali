@@ -1,0 +1,100 @@
+/* app css stylesheet */
+html, body{
+  height:100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+}
+
+#header {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#footer {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+.operation_in_progress_panel{
+  position:absolute;
+  height:100%;
+  width:100%;
+  background-color:rgba(64, 64, 64, 0.7);
+  z-index:1000;
+  vertical-align:middle;
+  margin-top: -5px;
+  padding-top:5px;
+  box-sizing: border-box;
+}
+
+.operation_in_progress_panel_text{
+
+  /* Add CSS3 styles for transition smoothing */
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  font-size:200%;
+  border: solid;
+  border-radius: 10px;
+  background-color: #cccccc;
+  color: #000000;
+  opacity: 1;
+  width: 40%;
+  height: 80px;
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="ZMLGruppiLocali">
+<head>
+  <meta charset="utf-8">
+  <title>ZMLGruppiLocali</title>
+
+  <link rel="stylesheet" type="text/css" href="external/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="external/css/jquery-ui.css">
+  <link rel="stylesheet" href="external/css/loading-bar.css">
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/action-bar.css">
+  <link rel="stylesheet" href="css/gruppi-locali-view.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/panel-aziende.css">
+  <link rel="stylesheet" href="css/popup-panel-aziende.css">
+
+  <script type="text/javascript" src="external/js/jquery.min.js"></script>
+  <script type="text/javascript" src="external/js/jquery-ui.min.js"></script>
+
+  <script type="text/javascript" src="external/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="external/js/angular.min.js"></script>
+  <script type="text/javascript" src="external/js/angular-route.js"></script>
+  <script type="text/javascript" src="external/js/loading-bar.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="routes.js"></script>
+  <script type="text/javascript" src="configuration.js"></script>
+
+  <script type="text/javascript" src="js/directives/gruppi-locali-view.js"></script>
+  <script type="text/javascript" src="js/directives/gruppi-locali-list.js"></script>
+  <script type="text/javascript" src="js/directives/gruppi-locali-list-item.js"></script>
+  <script type="text/javascript" src="js/directives/gruppo-locale-info.js"></script>
+  <script type="text/javascript" src="js/directives/azienda-item.js"></script>
+  <script type="text/javascript" src="js/directives/gruppi-locali-action-bar.js"></script>
+  <script type="text/javascript" src="js/directives/elements/actions-bar-button.js"></script>
+  <script type="text/javascript" src="js/directives/panel-aziende-actions-bar.js"></script>
+  <script type="text/javascript" src="js/directives/panel-aziende-list.js"></script>
+  <script type="text/javascript" src="js/directives/panel-aziende.js"></script>
+  <script type="text/javascript" src="js/directives/popup/popup-list-azienda-item.js"></script>
+  <script type="text/javascript" src="js/directives/popup/popup-panel-aziende-list.js"></script>
+  <script type="text/javascript" src="js/directives/utils/allow-pattern.js"></script>
+
+  <script type="text/javascript" src="js/controllers/gruppi-locali-list-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/gruppi-locali-view-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/gruppo-locale-info-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/gruppi-locali-action-bar-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/panel-aziende-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/panel-aziende-list-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/panel-aziende-actions-bar-controller.js"></script>
+  <script type="text/javascript" src="js/controllers/popup/popup-panel-aziende-list-controller.js"></script>
+
+  <script type="text/javascript" src="js/services/http-helper.js"></script>
+  <script type="text/javascript" src="js/services/utils.js"></script>
+  <script type="text/javascript" src="js/services/operation-in-progress-panel.js"></script>
+  <script type="text/javascript" src="js/services/yes-no-cancel.dialog.js"></script>
+  <script type="text/javascript" src="js/services/zmlgruppilocali-helper.js"></script>
+
+</head>
+<body>
+  <div class="col-lg-12 no-right-pad no-left-pad container" ng-view></div>
+</body>
+</html>

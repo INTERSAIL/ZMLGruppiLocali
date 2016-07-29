@@ -1,0 +1,60 @@
+.delete-button {
+    background-image: url('../icons/stop.png');
+}
+.add-button {
+    background-image: url('../icons/edit_add.png');
+}
+.refresh-button {
+    background-image: url('../icons/kaboodleloop.png');
+}
+.edit-button {
+    background-image: url('../icons/DDT.png');
+}
+.save-button {
+    background-image: url('../icons/3floppy_unmount.png');
+}
+.valid-button {
+    background-image: url('../icons/accept.png');
+}
+.revision-button {
+    background-image: url('../icons/newfont_32.png');
+}
+.cancel-button {
+    background-image: url('../icons/fileclose.png');
+}
+.no-image-button {
+    background-image: url('../icons/black-cross.png');
+}
+.move-up-button {
+    background-image: url('../icons/small_up.png');
+}
+.move-up-disabled-button {
+    background-image: url('../icons/small_up_grayed.png');
+}
+.move-down-button {
+    background-image: url('../icons/small_down.png');
+}
+.move-down-disabled-button {
+    background-image: url('../icons/small_down_grayed.png');
+}
+.generic-document-icon {
+    background-image: url('../icons/DDT.png')
+}
+.draft-icon {
+    background-image: url('../icons/configure.png');
+}
+.valid-icon {
+    background-image: url('../icons/accept.png');
+}
+.revision-icon {
+    background-image: url('../icons/newfont_32.png');
+}
+.pdf-icon {
+    background-image: url('../icons/pdf_icon.jpg')
+}
+.odt-icon {
+    background-image: url('../icons/odt-716.png')
+}
+.doc-icon {
+    background-image: url('../icons/word-icon.png')
+}

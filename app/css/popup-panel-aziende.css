@@ -1,0 +1,15 @@
+#popupListaAziendeModal .modal-dialog{
+ margin-top: 50px;
+}
+
+
+.popup-panel-aziende{
+
+ height: 100%;
+ width: 100%;
+ z-index: 1;
+ margin-top: -48px;
+ padding-top: 48px;
+ box-sizing: border-box;
+
+}

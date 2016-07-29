@@ -1,0 +1,67 @@
+.panel-aziende{
+    height: 100%;
+    z-index: 1;
+    margin-top: -375px; /*-213px;*/
+    padding-top: 375px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.panel-lista-aziende{
+    height: 100%;
+    z-index: 1;
+    margin-top: -375px; /*-213px;*/
+    padding-top: 375px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.panel-aziende-body-p{
+    height: 100%;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.panel-aziende-body-disabled{
+    background-color: silver;
+    padding: 5px;
+    /*max-height: 650px;*/
+    height: 100%;
+    overflow-y: scroll;
+    pointer-events: none;
+}
+
+.container-aziende-panel-body-p{
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    margin-top: -80px;
+    padding-top: 80px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.lista-aziende-header{
+    border-bottom-color: #2e6da4;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    background-color: #afd9ee;
+}
+
+.lista-aziende-item{
+    border-bottom-color: #2e6da4;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    background-color: transparent;
+}
+
+.lista-aziende-item:hover{
+    cursor:pointer;
+}
+
+.lista-aziende-item-selected{
+    border-bottom-color: #2e6da4;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    background-color: #f7ecb5;
+}

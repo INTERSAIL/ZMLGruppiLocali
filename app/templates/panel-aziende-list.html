@@ -1,0 +1,17 @@
+<div style="height: 100%" class="panel panel-primary">
+    <div class="panel-heading">Lista Aziende</div>
+    <div class="col-md-12 lista-aziende-header">
+        <div class="col-md-3"><label>Nome Sede</label></div>
+        <div class="col-md-3"><label>Codice Interno</label></div>
+        <div class="col-md-3"><label>Comune</label></div>
+        <div class="col-md-3"><label>Provincia</label></div>
+    </div>
+
+    <div class="container-aziende-panel-body-p">
+        <div ng-class="editable == true ? 'panel-aziende-body-disabled' : 'panel-aziende-body-p'">
+            <div ng-repeat="azienda in aziendeList">
+                <azienda-item ng-hide="azienda.elaborare == -1" ></azienda-item>
+            </div>
+        </div>
+    </div>
+</div>
