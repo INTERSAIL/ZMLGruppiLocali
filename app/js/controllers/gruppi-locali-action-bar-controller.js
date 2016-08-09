@@ -56,6 +56,7 @@ angular.module("ZMLGruppiLocali")
             {}
             else
             {
+                $scope.$parent.isValidGruppoLocale = true;
                 $scope.$parent.editable = true;
                 $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
                 // qui setto il valore del medico associato al gruppo locale
@@ -84,6 +85,7 @@ angular.module("ZMLGruppiLocali")
             $scope.$parent.tmpGruppoLocale = null;
           else
             $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
+            $scope.$parent.isValidGruppoLocale = false;
 
         };
 
