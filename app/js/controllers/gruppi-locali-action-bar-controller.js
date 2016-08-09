@@ -5,10 +5,21 @@ angular.module("ZMLGruppiLocali")
             ZMLGruppiLocaliHelper.listGruppiLocali({
                 successFunction: function (data){
                     $scope.$parent.gruppiLocaliList = data;
-                    $scope.$parent.selectedGruppoLocale = gruppoSelectedBefore == undefined ? data[0] : gruppoSelectedBefore;
-                    $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
                     $scope.$parent.errors = null;
-                    $scope.$parent.isValidGruppoLocale = false;
+                    $scope.$parent.selectedGruppoLocale = gruppoSelectedBefore == undefined ? data[0] : gruppoSelectedBefore;
+
+                    ZMLGruppiLocaliHelper.readGruppoLocale($scope.$parent.selectedGruppoLocale.id, {
+                        successFunction: function(data){
+                            $scope.$parent.selectedGruppoLocale = data;
+                            $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
+                            $scope.$parent.isValidGruppoLocale = false;
+                        },
+                        errorFunction: function(data){
+                            $scope.$parent.errors = null;
+                            $scope.$parent.tmpGruppoLocale = null;
+                            $scope.$parent.isValidGruppoLocale = false;
+                        }
+                    }, cfpLoadingBar);
                 },
                 errorFunction: function (data) {
                     $scope.$parent.gruppiLocaliList = null;
@@ -74,7 +85,6 @@ angular.module("ZMLGruppiLocali")
           else
             $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
 
-          $scope.$parent.isValidGruppoLocale = false;
         };
 
         $scope.deleteGruppoLocale = function(){

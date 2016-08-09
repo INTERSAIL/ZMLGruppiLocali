@@ -26,10 +26,21 @@ angular.module("ZMLGruppiLocali")
          ZMLGruppiLocaliHelper.listGruppiLocali({
             successFunction: function (data){
                     $scope.gruppiLocaliList = data;
-                    $scope.selectedGruppoLocale = data[0];
-                    $scope.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.selectedGruppoLocale);
                     $scope.errors = null;
-                    $scope.isValidGruppoLocale = false;
+                    $scope.selectedGruppoLocale = data[0];
+
+                    ZMLGruppiLocaliHelper.readGruppoLocale($scope.selectedGruppoLocale.id, {
+                            successFunction: function(data){
+                                    $scope.selectedGruppoLocale = data;
+                                    $scope.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.selectedGruppoLocale);
+                                    $scope.isValidGruppoLocale = false;
+                            },
+                            errorFunction: function(data){
+                                    $scope.errors = null;
+                                    $scope.tmpGruppoLocale = null;
+                                    $scope.isValidGruppoLocale = false;
+                            }
+                    }, cfpLoadingBar);
             },
             errorFunction: function (data) {
                     $scope.gruppiLocaliList = null;
@@ -40,17 +51,6 @@ angular.module("ZMLGruppiLocali")
             }
         }, cfpLoadingBar);
 
-
-
-      /*  $http({method: 'GET', url:"test_json/gruppilocali.json"})
-            .success(function(data){
-                $scope.gruppiLocaliList = data;
-                $scope.selectedGruppoLocale = data[0];
-                $scope.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.selectedGruppoLocale);
-                $scope.errors = null;
-            })
-            .error(function(data){});
-*/
         this.getSelectedGruppoLocale = function(){
                 return $scope.selectedGruppoLocale;
         };
