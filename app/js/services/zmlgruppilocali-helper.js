@@ -7,7 +7,7 @@ angular.module("ZMLGruppiLocali")
             },
 
             readGruppoLocale: function(gruppoLocaleId, handlers, progressBar){
-                HttpHelper.http({method:'GET', url: configuration.gruppi_locali_controller_url + gruppoLocaleId + '/readgruppolocale'}, handlers, progressBar);
+                HttpHelper.http({method:'GET', url: configuration.gruppi_locali_controller_url + gruppoLocaleId}, handlers, progressBar);
             },
 
             saveGruppoLocale: function(gruppoLocale, handlers, progressBar){
