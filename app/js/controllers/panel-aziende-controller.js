@@ -12,7 +12,7 @@ angular.module("ZMLGruppiLocali")
         this.removeAziendaFromGL = function(azienda){
             $scope.$parent.removeAziendaFromGL($scope.tmpGruppoLocale.selectedAzienda);
             $scope.tmpGruppoLocale.selectedAzienda = null;
-        }
+        };
 
         this.getAziendaByOrder = function(ordine){
             for(var i =0; i<$scope.tmpGruppoLocale.lista_ditte.length; i++)
@@ -22,7 +22,7 @@ angular.module("ZMLGruppiLocali")
             }
 
             return null;
-        }
+        };
 
         this.getListaDitte = function () {
             return $scope.tmpGruppoLocale.lista_ditte;
