@@ -36,19 +36,18 @@ angular.module("ZMLGruppiLocali")
 
               scope.$watch('tmpGruppoLocale.InizioTurno', function(newValue, oldValue){
                   if(scope.tmpGruppoLocale.InizioTurno != undefined) {
-                      var n = scope.tmpGruppoLocale.InizioTurno.getHours() +1; // aggiungo un'ora altrimenti quando converte si perde un'ora.. si può risolvere in altro modo il problema??
-                      var newdate = new Date( scope.tmpGruppoLocale.InizioTurno);
-                      newdate.setHours(n);
-                      scope.tmpGruppoLocale.inizio_turno = newdate.toISOString();
+                      var newdate = new Date(scope.tmpGruppoLocale.InizioTurno);
+                      var d =  moment(newdate);
+                      scope.tmpGruppoLocale.inizio_turno = d.format();
+                      console.log(scope.tmpGruppoLocale.inizio_turno);
                   }
               });
 
               scope.$watch('tmpGruppoLocale.CambioTurno', function(newValue, oldValue){
                   if(scope.tmpGruppoLocale.CambioTurno != undefined){
-                      var n = scope.tmpGruppoLocale.CambioTurno.getHours() +1;
                       var newdate = new Date( scope.tmpGruppoLocale.CambioTurno);
-                      newdate.setHours(n);
-                      scope.tmpGruppoLocale.cambio_turno = newdate.toISOString();
+                      var d =  moment(newdate);
+                      scope.tmpGruppoLocale.cambio_turno = d.format();
                   }
 
 
@@ -56,10 +55,9 @@ angular.module("ZMLGruppiLocali")
 
               scope.$watch('tmpGruppoLocale.FineTurno', function(newValue, oldValue){
                   if(scope.tmpGruppoLocale.FineTurno != undefined){
-                      var n = scope.tmpGruppoLocale.FineTurno.getHours() +1;
                       var newdate = new Date( scope.tmpGruppoLocale.FineTurno);
-                      newdate.setHours(n);
-                      scope.tmpGruppoLocale.fine_turno = newdate.toISOString();
+                      var d =  moment(newdate);
+                      scope.tmpGruppoLocale.fine_turno = d.format();
                   }
               });
 
