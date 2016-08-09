@@ -5,19 +5,33 @@ angular.module("ZMLGruppiLocali")
           templateUrl: "templates/gruppo-locale-info.html",
           scope:{
             tmpGruppoLocale:"=",
-            editable:"="
+            editable:"=",
+            isValidGruppoLocale: "="
           },
           controller: "GruppoLocaleInfoController",
           controllerAs: "GruppoLocaleInfoCtrl",
           link: function(scope, element, attrs){
 
-              if(scope.tmpGruppoLocale.lista_ditte != null)
-              {
-                  for(var i=0; i<scope.tmpGruppoLocale.lista_ditte.length; i++)
+              scope.$watch('tmpGruppoLocale.lista_ditte', function(newValue, oldValue){
+
+                  if(scope.tmpGruppoLocale.lista_ditte != null && scope.tmpGruppoLocale.lista_ditte != undefined)
                   {
-                      scope.listaAziende.push(scope.tmpGruppoLocale.lista_ditte[i]);
+                      scope.listaAziendeLinkedToGL =[];
+
+                      for(var i=0; i<scope.tmpGruppoLocale.lista_ditte.length; i++)
+                      {
+                          var p = scope.tmpGruppoLocale.lista_ditte[i];
+                          p.linkedToGL = true;
+                          scope.listaAziendeLinkedToGL.push(p);
+                      }
                   }
-              };
+                  else if(scope.tmpGruppoLocale.lista_ditte == null || scope.tmpGruppoLocale.lista_ditte == undefined)
+                  {
+                      scope.listaAziendeLinkedToGL = [];
+                  }
+
+              });
+
 
 
               scope.$watch('tmpGruppoLocale.InizioTurno', function(newValue, oldValue){
@@ -48,6 +62,10 @@ angular.module("ZMLGruppiLocali")
                       scope.tmpGruppoLocale.fine_turno = newdate.toISOString();
                   }
               });
-                   }
+
+              scope.$watch('frmGruppoLocale.$valid', function(validity) {
+                  scope.isValidGruppoLocale = validity;
+              });
+          }
         };
     });

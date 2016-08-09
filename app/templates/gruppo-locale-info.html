@@ -1,6 +1,6 @@
 <div style="height: 100%" class="gruppo-locale-info">
     <form name="frmGruppoLocale" class="form-horizontal gruppo-locale-info" style="height: 100%" novalidate>
-        <h2>Dettagli Gruppo Locale</h2>
+        <h2 class="h2-gruppi-locali">Dettagli Gruppo Locale</h2>
         <div class="wrapper-form-element">
             <div class="form-group element-form"><!-- nome-->
                 <label class="control-label col-md-1" for="txtName">Nome:</label>
@@ -64,12 +64,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Lista Aziende</h4>
             </div>
-            <div class="modal-body">
-                <popup-panel-aziende-list tmp-lista-aziende="listaAziende"></popup-panel-aziende-list>
+            <div class="modal-body" style="height: 450px;">
+                <popup-panel-aziende-list tmp-lista-aziende="listaAziendeLinkedToGL" tmp-gruppo-locale="tmpGruppoLocale" ng-model="isAddActivated"></popup-panel-aziende-list>
             </div>
             <div class="modal-footer">
                 <button id="btnAnnulla" type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeModal()">Annulla</button>
-                <button id="btnAggiungi" type="button" class="btn btn-primary" ng-click="addListaAziendeToGL()">Aggiungi</button>
+                <button id="btnAggiungi" type="button" class="btn btn-primary" ng-click="addListaAziendeToGL()" ng-disabled="!isAddActivated" >Aggiungi</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

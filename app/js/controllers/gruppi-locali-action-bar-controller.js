@@ -14,6 +14,7 @@ angular.module("ZMLGruppiLocali")
                     $scope.$parent.gruppiLocaliList = null;
                     $scope.$parent.selectedGruppoLocale = null;
                     $scope.$parent.tmpGruppoLocale = Utils.cleanTmpGruppoLocale();
+                    $scope.$parent.tmpGruppoLocale.selectedMedicoId = -1;
                     $scope.$parent.errors = data;
                     $scope.$parent.isValidGruppoLocale = false;
                 }
@@ -35,7 +36,8 @@ angular.module("ZMLGruppiLocali")
                     "listaDitte":[]
             }
             $scope.$parent.editable = true;
-            $scope.$parent.tmpGruppoLocale = newGruppoLocale;
+            $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale(newGruppoLocale);
+            $scope.$parent.tmpGruppoLocale.selectedMedicoId = -1;
         };
 
         $scope.editGruppoLocale = function(){
@@ -45,6 +47,8 @@ angular.module("ZMLGruppiLocali")
             {
                 $scope.$parent.editable = true;
                 $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
+                // qui setto il valore del medico associato al gruppo locale
+                $scope.$parent.tmpGruppoLocale.selectedMedicoId = $scope.$parent.selectedGruppoLocale.lista_ditte != undefined && $scope.$parent.selectedGruppoLocale.lista_ditte.length > 0 ? $scope.$parent.selectedGruppoLocale.lista_ditte[0].medico_id : -1;
             }
         };
 
@@ -63,21 +67,37 @@ angular.module("ZMLGruppiLocali")
 
         $scope.undoGruppoLocale = function(){
           $scope.$parent.editable = false;
-          $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
+          if($scope.$parent.selectedGruppoLocale == null || $scope.$parent.selectedGruppoLocale == undefined)
+              $scope.$parent.selectedGruppoLocale =  $scope.$parent.gruppiLocaliList.length > 0 ? $scope.$parent.gruppiLocaliList[0] : null;
+          if($scope.$parent.selectedGruppoLocale == null)
+            $scope.$parent.tmpGruppoLocale = null;
+          else
+            $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
+
           $scope.$parent.isValidGruppoLocale = false;
         };
 
         $scope.deleteGruppoLocale = function(){
-         ZMLGruppiLocaliHelper.deleteGruppoLocale($scope.$parent.selectedGruppoLocale,{
-             successFunction: function(data){
-                 $scope.$parent.selectedGruppoLocale = null;
-                 Utils.cleanTmpGruppoLocale();
-                 $scope.errors = null;
-                 $scope.refresh();
-             },
-             errorFunction: function(data){
+            $.confirm({
+                title:'Attenzione',
+                content: 'Stai per eliminare un Gruppo Locale. Vuoi procedere?',
+                confirmButton: "Elimina",
+                cancelButton: "Annulla",
+                confirm: function(){
+                    ZMLGruppiLocaliHelper.deleteGruppoLocale($scope.$parent.selectedGruppoLocale,{
+                        successFunction: function(data){
+                            $scope.$parent.selectedGruppoLocale = null;
+                            Utils.cleanTmpGruppoLocale();
+                            $scope.errors = null;
+                            $scope.refresh();
+                        },
+                        errorFunction: function(data){
 
-             }
-         }, cfpLoadingBar);
+                        }
+                    }, cfpLoadingBar);
+                },
+                cancel: function(){
+                }
+            });
         }
     });

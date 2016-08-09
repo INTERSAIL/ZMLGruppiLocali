@@ -25,6 +25,14 @@
 .no-image-button {
     background-image: url('../icons/black-cross.png');
 }
+.move-up-button_16 {
+    background-image: url('../icons/small_up_16.png');
+}
+
+.move-down-button_16 {
+    background-image: url('../icons/small_down_16.png');
+}
+
 .move-up-button {
     background-image: url('../icons/small_up.png');
 }

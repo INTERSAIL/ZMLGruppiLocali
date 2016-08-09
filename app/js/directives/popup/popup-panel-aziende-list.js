@@ -6,19 +6,11 @@ angular.module("ZMLGruppiLocali")
           templateUrl:"templates/popup/popup-panel-aziende-list.html",
           controller: "PopupPanelAziendeListController",
           scope:{
-            tmpListaAziende: "=",
-            tmpGruppoLocale: "="
+            tmpListaAziende: "=", //lista delle aziende collegate al gruppo locale + quelle che verranno aggiunte o tolte
+            tmpGruppoLocale: "=",
+            editable: "=",
           },
             link: function (scope, element, attrs){
-
-               // scope.loadListaAziende();
-                /*$http({method: 'GET', url:"test_json/listaAziende.json"})
-                    .success(function(data){
-                        scope.listaAziende = data;
-                        scope.errors = null;
-                    })
-                    .error(function(data){});
-*/
             }
         };
     });

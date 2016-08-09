@@ -59,4 +59,18 @@ angular.module("ZMLGruppiLocali")
                 $scope.selectedGruppoLocale = gruppoLocale;
                 $scope.tmpGruppoLocale = Utils.cloneGruppoLocale(gruppoLocale);
         };
+
+    this.deleteGruppoLocale = function(){
+            ZMLGruppiLocaliHelper.deleteGruppoLocale($scope.selectedGruppoLocale,{
+                    successFunction: function(data){
+                            $scope.selectedGruppoLocale = null;
+                            Utils.cleanTmpGruppoLocale();
+                            $scope.errors = null;
+                            $scope.refresh();
+                    },
+                    errorFunction: function(data){
+
+                    }
+            }, cfpLoadingBar);
+    }
     });

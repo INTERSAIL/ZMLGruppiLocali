@@ -26,8 +26,8 @@ angular.module("ZMLGruppiLocali")
 
             },
             
-            listaDitte: function(gruppoLocaleId,filtro, handlers, progressBar){
-              HttpHelper.http({method:'GET', url:configuration.gruppi_locali_controller_url + gruppoLocaleId + '/listaditte', params:{filterName: filtro}}, handlers, progressBar);
+            listaDitte: function(gruppoLocaleId, nomeSede, medicoId, handlers, progressBar){
+              HttpHelper.http({method:'GET', url:configuration.gruppi_locali_controller_url + gruppoLocaleId + '/listaditte', params:{filterNomeSede: nomeSede, filterMedicoId: medicoId}}, handlers, progressBar);
             }
 
         };

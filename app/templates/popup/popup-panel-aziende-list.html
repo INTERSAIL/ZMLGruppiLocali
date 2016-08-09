@@ -1,22 +1,23 @@
-<div style="height: 250px; width: 100%;">
+<div style="height: 100%; width: 100%;">
         <label>Nome Sede: <input ng-model="txtSearch.name" style="width: 100%; height: 23px;z-index: 100;position:relative;" ng-disabled="editable" ng-change="loadListaAziende(txtSearch.name)">
         </label>
     <div class="popup-panel-aziende">
     <div style="height: 100%; width: 100%" class="panel panel-primary">
       <div class="panel-heading" style="width: 100%">Lista Aziende</div>
-       <div class="col-md-12 lista-aziende-header">
+       <div class="col-md-12 lista-aziende-header" style="padding-left: 0; padding-right: 0">
            <div class="col-md-3"><label>Nome Sede</label></div>
-           <div class="col-md-3"><label>Codice Interno</label></div>
-           <div class="col-md-3"><label>Comune</label></div>
-           <div class="col-md-3"><label>Provincia</label></div>
+           <div class="col-md-2" style="padding-left: 0; padding-right: 0;" ><label>Cod.Int.</label></div>
+           <div class="col-md-3" style="padding-left: 0;padding-right: 0;"><label>Comune</label></div>
+           <div class="col-md-1" style="padding-left: 0;padding-right: 0;margin-left: -15px;"><label>Prov.</label></div>
+           <div class="col-md-3" style="padding-left: 0;padding-right: 0;"><label>Medico</label></div>
        </div>
 
        <div class="container-aziende-panel-body-p">
            <div ng-class="editable == true ? 'panel-aziende-body-disabled' : 'panel-aziende-body-p'">
-               <div ng-repeat="azienda in listaAziende">
-                   <popup-list-azienda-item></popup-list-azienda-item>
+               <div ng-repeat="azienda in listaAllAziende">
+                   <popup-list-azienda-item ng-show="$parent.tmpGruppoLocale.selectedMedicoId == -1 || azienda.medico_id == $parent.tmpGruppoLocale.selectedMedicoId "></popup-list-azienda-item>
                </div>
-               <div ng-show="listaAziende == null || listaAziende.length == 0">
+               <div ng-show="listaAllAziende == null || listaAllAziende.length == 0">
                    Nessun azienda corrisponde ai criteri inseriti
                </div>
            </div>

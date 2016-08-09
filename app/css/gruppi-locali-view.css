@@ -86,6 +86,19 @@
 .element-form{
     margin: 10px;"
 }
+.h2-gruppi-locali{
+    font-size: 30px;
+    border-bottom: aliceblue;
+    border: solid;
+    background-color: bisque;
+    border-color: bisque;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 60px;
+    padding-top: 7px;
+}
 
 .description-area{
     /*height: 100%;*/

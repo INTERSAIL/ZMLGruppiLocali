@@ -2,7 +2,7 @@
   {
   "id":1, "name":"gruppo1", "description":"primo gruppo di test", "considera_tempi_viaggio":"true", "considera_ordine_ditte":"true","visite_orario_cod": "******",
     "inizio_turno": "2016-07-21T09:30:00", "cambio_turno":"12:30", "fine_turno":"16:30",
-    "listaDitte":[{"id":1, "nome_sede":"Apriti o cielo", "codice_interno_azienda": "1738131jsf23", "comune":"brescia", "sigla_provincia":"BS", "elaborare":"0", "medico_id":1 },
+    "listaDitte":[{"id":1, "nome_sede":"Apriti o cielo", "codice_interno_azienda": "1738131jsf23", "comune":"brescia", "sigla_provincia":"BS", "elaborare":"0", "medico_id":1, "durata_teorica":10, "ordine":0 },
       {"id":2, "nome_sede":"Apriti o cielo abra flsdn slksg", "codice_interno_azienda": "1738131jsf23", "comune":"brescia", "sigla_provincia":"BS", "elaborare":"0" },
       {"id":3, "nome_sede":"Apriti o cielo", "codice_interno_azienda": "1738131jsf23", "comune":"brescia", "sigla_provincia":"BS" , "elaborare":"0"},
       {"id":4, "nome_sede":"Apriti o cielo", "codice_interno_azienda": "1738131jsf23", "comune":"brescia", "sigla_provincia":"BS", "elaborare":"0" },

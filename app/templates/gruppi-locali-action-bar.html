@@ -3,6 +3,6 @@
     <actions-bar-button image-class="add-button" tooltip="Nuovo Gruppo Locale" visible="!editable" enabled="true"></actions-bar-button>
     <actions-bar-button image-class="edit-button" tooltip="Modifica Gruppo Locale" visible="!editable" enabled="$parent.tmpGruppoLocale"></actions-bar-button>
     <actions-bar-button image-class="cancel-button" tooltip="Annulla modifiche Gruppo Locale" visible="editable" enabled="$parent.tmpGruppoLocale"></actions-bar-button>
-    <actions-bar-button image-class="save-button" tooltip="Salva Gruppo Locale" visible="editable" enabled="$parent.tmpGruppoLocale"></actions-bar-button>
+    <actions-bar-button image-class="save-button" tooltip="Salva Gruppo Locale" visible="editable" enabled="$parent.tmpGruppoLocale && $parent.isValidGruppoLocale"></actions-bar-button>
     <actions-bar-button image-class="delete-button" tooltip="Elimina Gruppo Locale" visible="!editable" enabled="!editable &&  $parent.tmpGruppoLocale"></actions-bar-button>
 </div>

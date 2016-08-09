@@ -5,6 +5,7 @@ angular.module("ZMLGruppiLocali")
             templateUrl: "templates/panel-aziende-list.html",
             scope:{
                 aziendeList: "=",
+                editable: "="
             },
             controller: "PanelAziendeListController"
         }

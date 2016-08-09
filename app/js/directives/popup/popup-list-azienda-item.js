@@ -6,23 +6,28 @@ angular.module("ZMLGruppiLocali")
             require: "^popupPanelAziendeList",
             link: function(scope, element, attr, parentController)
             {
-                  element.on("dblclick", function(){
-                    if(parentController.isSelectedAzienda(scope.azienda)){
-                        //remove azienda from tmpArray
-                        scope.$apply(function () {
-                        parentController.removeAziendaToTmpArray(scope.azienda);
-                        // decoloro la riga
-                        });
-                    }
+                  element.on("click", function(){
 
-                    else
-                    {
-                        //aggiungi azienda al tmpArray
-                        scope.$apply(function () {
-                        parentController.addAziendaToTmpArray(scope.azienda);
-                        //coloro la riga
-                    });
-                    }
+                     if(scope.azienda.linkedToGL != true)
+                     {
+                        if(parentController.isSelectedAzienda(scope.azienda)){
+                            //remove azienda from tmpArray
+                            scope.$apply(function () {
+                            parentController.removeAziendaToTmpArray(scope.azienda);
+                            // decoloro la riga
+                            });
+                        }
+
+                        else
+                        {
+                            //aggiungi azienda al tmpArray
+                            scope.$apply(function () {
+                            parentController.addAziendaToTmpArray(scope.azienda);
+                            //coloro la riga
+
+                            });
+                        }
+                     }
                 });
 
                 scope.isSelectedAziendaItem = function(azienda){
