@@ -34,19 +34,19 @@
             <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"><!--Inizio turno 08:00-->
                 <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeInizioTurno">Inizio Turno:</label>
                 <div class="col-md-10" style="padding-left: 0;">
-                    <input type="time" id="timeInizioTurno" ng-model="tmpGruppoLocale.InizioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" format="">
+                    <input type="time" id="timeInizioTurno" ng-model="tmpGruppoLocale.InizioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" required>
                 </div>
             </div>
             <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"> <!--Cambio turno 00:00-->
                 <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeCambioTurno" >Cambio Turno:</label>
                 <div class="col-md-10" style="padding-left: 0;">
-                    <input type="time" id="timeCambioTurno" ng-model="tmpGruppoLocale.CambioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10">
+                    <input type="time" id="timeCambioTurno" ng-model="tmpGruppoLocale.CambioTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" required>
                 </div>
             </div>
             <div class="col-md-12" style="margin-top: 5px; margin-bottom: 5px;padding-left: 2px;"><!--Fine turno 00:00-->
                 <label class="col-md-2" style="padding-left: 0px; padding-right: 0;" for="timeFineTurno">Fine Turno:</label>
                 <div class="col-md-10" style="padding-left: 0;">
-                    <input type="time" id="timeFineTurno" ng-model="tmpGruppoLocale.FineTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10">
+                    <input type="time" id="timeFineTurno" ng-model="tmpGruppoLocale.FineTurno" ng-disabled="!editable" ng-class="{'edit-mode':editable}" style="position:relative;z-index:10" required>
                 </div>
             </div>
             <div class="col-md-12 panel-aziende" style="padding-left: 2px; padding-right: 2px;"><!--lista azienda-->

@@ -105,3 +105,10 @@ html, body{
   text-align: center;
   margin: auto;
 }
+
+.edit-mode.ng-invalid {
+  border-color: #FA787E;
+}
+.edit-mode.ng-valid {
+  border-color: #78FA89;
+}
