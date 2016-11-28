@@ -3,23 +3,31 @@ angular.module("ZMLGruppiLocali")
 
         $scope.refresh = function(gruppoSelectedBefore){
             ZMLGruppiLocaliHelper.listGruppiLocali({
-                successFunction: function (data){
+                successFunction: function (data) {
+                    if (data == null || data.length == 0) {
+                        $scope.$parent.gruppiLocaliList = data;
+                        $scope.$parent.errors = null;
+                        $scope.$parent.tmpGruppoLocale = null;
+                        $scope.$parent.selectedGruppoLocale = null;
+
+                    }
+                    else {
                     $scope.$parent.gruppiLocaliList = data;
                     $scope.$parent.errors = null;
+
                     $scope.$parent.selectedGruppoLocale = gruppoSelectedBefore == undefined ? data[0] : gruppoSelectedBefore;
 
                     ZMLGruppiLocaliHelper.readGruppoLocale($scope.$parent.selectedGruppoLocale.id, {
-                        successFunction: function(data){
+                        successFunction: function (data) {
                             $scope.$parent.selectedGruppoLocale = data;
                             $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
-                            $scope.$parent.isValidGruppoLocale = false;
                         },
-                        errorFunction: function(data){
+                        errorFunction: function (data) {
                             $scope.$parent.errors = null;
                             $scope.$parent.tmpGruppoLocale = null;
-                            $scope.$parent.isValidGruppoLocale = false;
                         }
                     }, cfpLoadingBar);
+                }
                 },
                 errorFunction: function (data) {
                     $scope.$parent.gruppiLocaliList = null;
@@ -27,7 +35,6 @@ angular.module("ZMLGruppiLocali")
                     $scope.$parent.tmpGruppoLocale = Utils.cleanTmpGruppoLocale();
                     $scope.$parent.tmpGruppoLocale.selectedMedicoId = -1;
                     $scope.$parent.errors = data;
-                    $scope.$parent.isValidGruppoLocale = false;
                 }
             }, cfpLoadingBar)
         };
@@ -56,7 +63,7 @@ angular.module("ZMLGruppiLocali")
             {}
             else
             {
-                $scope.$parent.isValidGruppoLocale = true;
+                //$scope.$parent.isValidGruppoLocale = true;
                 $scope.$parent.editable = true;
                 $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
                 // qui setto il valore del medico associato al gruppo locale
@@ -78,14 +85,10 @@ angular.module("ZMLGruppiLocali")
         };
 
         $scope.undoGruppoLocale = function(){
-          $scope.$parent.editable = false;
-          if($scope.$parent.selectedGruppoLocale == null || $scope.$parent.selectedGruppoLocale == undefined)
-              $scope.$parent.selectedGruppoLocale =  $scope.$parent.gruppiLocaliList.length > 0 ? $scope.$parent.gruppiLocaliList[0] : null;
-          if($scope.$parent.selectedGruppoLocale == null)
+            $scope.$parent.editable = false;
+            $scope.$parent.selectedGruppoLocale = null;
             $scope.$parent.tmpGruppoLocale = null;
-          else
-            $scope.$parent.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.$parent.selectedGruppoLocale);
-            $scope.$parent.isValidGruppoLocale = false;
+
 
         };
 

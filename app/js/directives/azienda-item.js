@@ -12,12 +12,17 @@ angular.module("ZMLGruppiLocali")
 
               element.on("click",function(){
                   scope.$apply(function () {
+                      console.log("ordine:" + scope.azienda.ordine);
                       parentController.setSelectedAzienda(scope.azienda);
                   });
               });
               
               scope.hideButton = function(azienda){
-                      return (azienda.ordine + 1 == parentController.getListaDitte().length);
+                  var max = parentController.getMaxOrdineInListaDitte();
+                  if(max == azienda.ordine)
+                      return true;
+                  else
+                      return false;
               };
 
               //la funzione non cambia l'ordine dell'array ma solo il valore della proprietà ordine

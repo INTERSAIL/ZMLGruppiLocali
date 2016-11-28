@@ -2,9 +2,12 @@ angular.module("ZMLGruppiLocali")
     .controller("PopupPanelAziendeListController", function($scope, ZMLGruppiLocaliHelper, cfpLoadingBar, configuration){
 
         //nb. tmpListaAziende === listaAziendeLinkedToGL
-
         $scope.loadListaAziende = function(filtroNomeSede){
-            if(filtroNomeSede.length >= 3)
+            if(filtroNomeSede == '')
+            {
+                 $scope.listaAllAziende = null;
+            }
+            else if(filtroNomeSede.length >= 3)
             {
                 ZMLGruppiLocaliHelper.listaDitte($scope.$parent.tmpGruppoLocale.id, filtroNomeSede, $scope.$parent.tmpGruppoLocale.selectedMedicoId,{
                     successFunction: function(data){

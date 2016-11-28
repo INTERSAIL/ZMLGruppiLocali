@@ -12,13 +12,11 @@ angular.module("ZMLGruppiLocali")
                         $scope.selectedGruppoLocale = data;
                         $scope.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.selectedGruppoLocale);
                         $scope.errors = null;
-                        $scope.isValidGruppoLocale = false;
                 },
                 errorFunction: function(data){
                         $scope.selectedGruppoLocale = null;
                         $scope.tmpGruppoLocale = Utils.cleanTmpGruppoLocale();
                         $scope.errors = data;
-                        $scope.isValidGruppoLocale = false;
                 }
         },
         cfpLoadingBar)};
@@ -26,28 +24,36 @@ angular.module("ZMLGruppiLocali")
          ZMLGruppiLocaliHelper.listGruppiLocali({
             successFunction: function (data){
                     $scope.gruppiLocaliList = data;
+                    if(data == null || data.length == 0)
+                    {
+                        $scope.selectedGruppoLocale = null;
+                        $scope.errors = null;
+                        $scope.tmpGruppoLocale = null;
+                    }
+                    else {
                     $scope.errors = null;
                     $scope.selectedGruppoLocale = data[0];
+
+
 
                     ZMLGruppiLocaliHelper.readGruppoLocale($scope.selectedGruppoLocale.id, {
                             successFunction: function(data){
                                     $scope.selectedGruppoLocale = data;
                                     $scope.tmpGruppoLocale = Utils.cloneGruppoLocale($scope.selectedGruppoLocale);
-                                    $scope.isValidGruppoLocale = false;
                             },
                             errorFunction: function(data){
                                     $scope.errors = null;
                                     $scope.tmpGruppoLocale = null;
-                                    $scope.isValidGruppoLocale = false;
                             }
                     }, cfpLoadingBar);
+                    }
+
             },
             errorFunction: function (data) {
                     $scope.gruppiLocaliList = null;
                     $scope.selectedGruppoLocale = null;
                     $scope.tmpGruppoLocale = Utils.cleanTmpGruppoLocale();
                     $scope.errors = data;
-                    $scope.isValidGruppoLocale = false;
             }
         }, cfpLoadingBar);
 

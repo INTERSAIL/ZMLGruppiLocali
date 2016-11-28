@@ -16,6 +16,7 @@ angular.module("ZMLGruppiLocali")
                {
                    tmpAzienda.linkedToGL = false;
                    tmpAzienda.elaborare = -1;
+                   tmpAzienda.ordine = -1;
                    // aggiorno l'array di passaggio
                    if($scope.listaAziendeLinkedToGL.indexOf(tmpAzienda) > -1)
                        $scope.listaAziendeLinkedToGL.splice($scope.listaAziendeLinkedToGL.indexOf(tmpAzienda),1);
